@@ -10,10 +10,13 @@ kotlin {
   // For MacOS, should be changed to e.g. macosX64
   // For Windows, should be changed to e.g. mingwX64
   macosX64("macos") {
+    compilations["main"].cinterops {
+      val libcurl by creating {}
+    }
     binaries {
       executable {
-        entryPoint = "hello.main"
-        runTask?.args("")
+        entryPoint = "id.kotlin.hello.main"
+        runTask?.args("https://bhinneka.com")
       }
     }
   }
